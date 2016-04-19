@@ -80,21 +80,22 @@ function lint_scripts() {
 
 gulp.task('lint', function (){ lint_scripts(); });
 
-function concat_scripts() {
+function concat_scripts(_concat) {
   return series(
     gather_vendor_scripts(),
     gather_app_scripts(),
     gather_templates()
   )
-    .pipe(concat("app.js"))
+    .pipe(gulpif(_concat, concat("app.js")))
     ;
 }
 
-function build_scripts(dest, minify){
+function build_scripts(dest, minify, concat){
   dest = typeof dest !== 'undefined' ? dest : config.paths.build;
   minify = typeof minify !== 'undefined' ? minify : false;
+  concat = typeof concat !== 'undefined' ? concat : false;
 
-  return concat_scripts()
+  return concat_scripts(concat)
     .pipe(gulpif(minify, minify_js()))
     .pipe(gulp.dest(`${dest}/js/`))
     .pipe(tap(function(file, t){
@@ -106,7 +107,7 @@ function build_scripts(dest, minify){
 
 gulp.task('scripts', ['lint'], function(){ return build_scripts(); });
 gulp.task('scripts:release', ['lint'], function(){
-  return build_scripts(config.paths.release);
+  return build_scripts(config.paths.release, false, true);
 });
 
 /*
