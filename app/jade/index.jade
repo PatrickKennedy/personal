@@ -1,0 +1,14 @@
+doctype html
+html(ng-app='personal')
+  head
+    if styles
+      each path in styles
+        link(rel="stylesheet" type="text/css" href="css/#{path}")
+
+  body(ng-controller="PersonalController as app")
+    div(ng-view)
+
+    if scripts
+      each path in scripts
+        script(type="text/javascript" src="js/#{path}")
+
