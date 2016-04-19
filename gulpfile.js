@@ -62,6 +62,7 @@ function gather_templates() {
     .pipe(ng_cache(
       `${pkg.name}.templates.js`,
       {
+        standalone: true,
         module: `${pkg.name}.templates`,
         transformUrl: function(url) {
           return url.replace('.tpl', '').replace('html', 'jade');
