@@ -102,6 +102,7 @@ function build_scripts(dest, minify, concat){
     .pipe(tap(function(file, t){
       if(final_js.indexOf(file.relative) < 0) final_js.push(file.relative);
     }))
+    .pipe(connect.reload())
     ;
 
 };
@@ -145,6 +146,7 @@ function build_styles(dest, minify){
     .pipe(tap(function(file, t){
       if(final_css.indexOf(file.relative) < 0) final_css.push(file.relative);
     }))
+    .pipe(connect.reload())
     ;
 };
 
@@ -182,7 +184,8 @@ function build_pages(dest, minify){
   return gather_pages(dest)
     .pipe(gulpif(minify, minify_html()))
     .pipe(gulp.dest(`${dest}/`))
-    ;
+    .pipe(connect.reload())
+   ;
 };
 
 gulp.task('pages', function(){ return build_pages() });
@@ -322,6 +325,7 @@ gulp.task('server', function server() {
   connect.server({
     root: [config.paths.build],
     port: config.connect_port || 8080,
+    livereload: true,
   });
 });
 
