@@ -1,0 +1,34 @@
+#list-maker-betterer
+  h2 Old and Busted
+  div.busted
+    ol
+      li Start Here
+      li Proceed to this step
+      li Continue by moving to this step
+      li Finish up with this final step
+
+  h2 New Hotness
+  div.better.hotness
+    ol
+      li Start Here
+      li Proceed to this step
+      li Continue by moving to this step
+      li Finish up with this final step
+
+script#step_panel(type="text/html").
+  <div id="step_panel">
+    <div id="sp-title">Step Preperties</div>
+    <div id="sp-state" class="sp-pip"></div>
+    <div id="sp-remove" class="sp-pip">-</div>
+    <div id="sp-index" class="sp-pip"></div>
+    <div id="sp-add" class="sp-pip">+</div>
+    <input id="sp-memo" type="search" placeholder="Memo..." value="">
+    <div class="tmb-button-group">
+      <input id="sp-user" name="color" type="radio" value="user">
+      <label for="sp-user" class="tmb-button">User</label>
+      <input id="sp-neither" name="color" type="radio" value="neither" checked>
+      <label for="sp-neither" class="tmb-button">Neither</label>
+      <input id="sp-agent" name="color" type="radio" value="agent">
+      <label for="sp-agent" class="tmb-button">Agent</label>
+    </div>
+  </div>

@@ -21,6 +21,20 @@ module.exports = {
       fonts: [
 
       ],
+    },
+    demos: {
+      'list-maker-betterer': {
+        scripts: [
+          'ich.min.js',
+          'jquery-1.9.1.min.js',
+          'objects.js',
+          'list-maker-betterer.js',
+        ],
+        styles: [
+          'github-buttons.css',
+          'list-maker-betterer.css',
+        ]
+      }
     }
   },
   jshint: {
