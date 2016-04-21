@@ -6,9 +6,36 @@ html(ng-app='personal')
         link(rel="stylesheet" type="text/css" href="css/#{path}")
 
   body(ng-controller="PersonalController as app")
-    div(ng-view)
+    #container
+      #wrapper
+        header
+          .logo
+            a(href="#/") Patrick Kennedy
+
+          nav
+            ul
+              li
+                a(href="#/resume") Resume
+              li
+                a(href="#/portfolio") Portfolio
+              li
+                a(href="#/about") About
+              li
+                a(href="#/contact") Contact
+
+        #content(ng-view)
+
+        footer
+          .twitter
+            a(href="https://twitter.com/Dysiode") @dysiode
+          .phone +1 (719) 359-9575
+          .email
+            a(href="mailto:p@trickkennedy.com") p@atrickkennedy.com
+          .github
+            a(href="https://github.com/PatrickKennedy") Github
+          .location
+            a(href="https://www.google.com/maps/place/Colorado+Springs,+CO/") Colorado Springs, United States
 
     if scripts
       each path in scripts
         script(type="text/javascript" src="js/#{path}")
-
