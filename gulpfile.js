@@ -190,6 +190,82 @@ gulp.task('pages:release', function(){
   return build_pages(config.paths.release);
 });
 
+
+/*
+ * Demo Related Tasks
+ *
+ * Gather, lint, concatinate, and, optionally, minify scripts
+ */
+
+function gather_demo_scripts(demo){
+  var paths = config.paths.demos[demo].scripts.map(function(file) {
+    return `demo/${demo}/${file}`;
+  });
+  return gulp.src(paths);
+};
+
+function concat_demo_scripts(demo, _concat) {
+  return gather_demo_scripts(demo)
+    .pipe(gulpif(_concat, concat(`${demo}.js`)))
+    ;
+}
+
+function gather_demo_styles(demo) {
+  var paths = config.paths.demos[demo].styles.map(function(file) {
+    return `demo/${demo}/${file}`;
+  });
+  return gulp.src(paths)
+    .pipe(gulpif(/[.]scss|sass$/,
+      sass({
+        sourcemap: false,
+        unixNewlines: true,
+        style: 'nested',
+        debugInfo: false,
+        quiet: false,
+        lineNumbers: true,
+        bundleExec: true,
+        loadPath: config.paths.vendor.sass,
+      })
+      .on('error', gutil.log)
+    ))
+    ;
+}
+
+function concat_demo_styles(demo, _concat) {
+  return gather_demo_styles(demo)
+    .pipe(gulpif(_concat, concat(`${demo}.css`)))
+    ;
+}
+
+function build_demos(dest, minify, concat){
+  dest = typeof dest !== 'undefined' ? dest : config.paths.build;
+  minify = typeof minify !== 'undefined' ? minify : false;
+  concat = typeof concat !== 'undefined' ? concat : false;
+
+  var demos = config.paths.demos
+      streams = [];
+
+  for (var demo in demos) {
+    if (demos.hasOwnProperty(demo)) {
+      streams.push(series(
+        concat_demo_scripts(demo, concat),
+        concat_demo_styles(demo, concat)
+      ));
+    }
+  }
+
+  return series(streams)
+    .pipe(gulp.dest(`${dest}/demo/${demo}`))
+    ;
+};
+
+gulp.task('demos', function(){
+  return build_demos(config.paths.build, false, true);
+});
+gulp.task('demos:release', function(){
+  return build_demos(config.paths.release, false, true);
+});
+
 /*
  * Watch for changes and process the files in the relevant tasks
  */
@@ -258,6 +334,7 @@ gulp.task('build', function(cb){
      "styles",
     ],
     "pages",
+    "demos",
     cb
   );
 });
@@ -270,6 +347,7 @@ gulp.task('release', function(cb){
      "styles:release",
     ],
     "pages:release",
+    "demos:release",
     cb
   );
 });
