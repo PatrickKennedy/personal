@@ -2,6 +2,7 @@
   angular
     .module('personal', [
       'ngRoute',
+      'angularLoad',
       'personal.templates',
       'personal.about',
       'personal.contact',

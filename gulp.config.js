@@ -14,6 +14,7 @@ module.exports = {
       scripts: [
         'vendor/angular/angular.js',
         'vendor/angular-route/angular-route.js',
+        'vendor/angular-load/angular-load.js',
       ],
       styles: [
 
