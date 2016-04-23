@@ -32,3 +32,22 @@ script#step_panel(type="text/html").
       <label for="sp-agent" class="tmb-button">Agent</label>
     </div>
   </div>
+
+script#inline_panel(type="text/html").
+  <div class="inline-panel" style="display: none;">
+    <div class="memo-edit" contenteditable>{{memo}}</div>
+    <div class="tmb-button-group">
+      <input id="sp-user-{{index}}" name="color-{{index}}" type="radio" value="user">
+      <label for="sp-user-{{index}}" class="tmb-button tmb-user">User</label>
+      <input id="sp-neither-{{index}}" name="color-{{index}}" type="radio" value="neither" checked>
+      <label for="sp-neither-{{index}}" class="tmb-button tmb-neither">Neither</label>
+      <input id="sp-agent-{{index}}" name="color-{{index}}" type="radio" value="agent">
+      <label for="sp-agent-{{index}}" class="tmb-button tmb-agent">Agent</label>
+    </div>
+  </div>
+
+script#generate_memo(type="text/html").
+  <div class="tmb-button-group" style="display: inline-block;">
+    <div class="tmb-button generate-memo">Generate Memos</div>
+    <div class="tmb-button generate-memo">Clear</div>
+  </div>
