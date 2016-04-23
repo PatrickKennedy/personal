@@ -295,6 +295,12 @@ gulp.task('watch', function(){
     ],
     ['pages']
   )
+  gulp.watch(
+    [
+      'demos/**/*.{js, css}',
+    ],
+    ['demos']
+  )
 });
 
 
