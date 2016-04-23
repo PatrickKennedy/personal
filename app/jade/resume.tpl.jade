@@ -1,38 +1,38 @@
-mixin header(start, stop, title, name, url)
-  .section_header
-    span.years #{start} - #{stop}:
-    span.title #{` ${title} - `}
-    span.company
-      a(href="#{url}")= name
+mixin section(start, stop, title, name, url)
+  section.position
+    .section_header
+      span.years #{start} - #{stop}:
+      span.title #{` ${title} - `}
+      span.company
+        a(href="#{url}")= name
 
-mixin subheader(...skills)
-  .section_subheader
+    block
+
+mixin skills(...skills)
+  .section_skills
     each skill, index in skills
       span.skill #{(skills.length - 1) == index ? skill : `${skill}, `}
 
 #resume
   h2 I did work. A lot of it.
 
-  .section
-    +header('2013', '2015', 'Full-Stack Developer', 'CouponFactory', 'http://www.couponfactory.com/')
-    +subheader('python', 'django', 'javascript', 'jquery', 'OSX')
+  +section('2013', '2015', 'Full-Stack Developer', 'CouponFactory', 'http://www.couponfactory.com/')
+    +skills('python', 'django', 'javascript', 'jquery', 'OSX')
     ul
       li Consolidated three client delivery tools into a single extensible tool reducing turn around by up--to 75%
       li Optimized deployment routines to reduce server deployment time by up¬to 60%
       li Principal developer on a small business project focused on converting inbound calls into sales
       li Worked as part of a fully remote development team
 
-  .section
-    +header('2012', '2013', 'Tier II Technical Support', 'T-Mobile USA', 'http://www.tmobile.com/')
-    +subheader('microsoft office', 'javascript', 'google chrome extensions')
+  +section('2012', '2013', 'Tier II Technical Support', 'T-Mobile USA', 'http://www.tmobile.com/')
+    +skills('microsoft office', 'javascript', 'google chrome extensions')
     ul
       li Quickly identified needs and root causes of technical problems based on customer descriptions
       li Tailored technical fixes and education solutions to best fit the customer's problem and personality
       li Developed a Chrome extension used by my team to enhance the troubleshooting workflow by adding an intelligent layer on top of existing resources
 
-  .section
-    +header('2012', '2012', 'Customer Care Supervisor', 'Verizon Wireless ', 'http://www.vzw.com/')
-    +subheader('microsoft office')
+  +section('2012', '2012', 'Customer Care Supervisor', 'Verizon Wireless ', 'http://www.vzw.com/')
+    +skills('microsoft office')
     ul
       li Managed a top performing team of 12 representatives, including coaching, designing incentives, and rapidly and accurately answering questions of reps on calls
       li Collaborated with other supervisors to design organization processes ensuring each supervisor had the opportunity to complete required tasks each day, even during periods of low staffing
