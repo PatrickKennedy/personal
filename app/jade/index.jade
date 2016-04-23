@@ -8,33 +8,11 @@ html(ng-app='personal')
   body(ng-controller="PersonalController as app")
     #container
       #wrapper
-        header
-          .logo
-            a(href="#/") Patrick Kennedy
-
-          nav
-            ul
-              li
-                a(href="#/resume") Resume
-              li
-                a(href="#/portfolio") Portfolio
-              li
-                a(href="#/about") About
-              li
-                a(href="#/contact") Contact
-
+        include ./partials/header.jade
+        
         #content(ng-view)
 
-        footer
-          .twitter
-            a(href="https://twitter.com/Dysiode") @dysiode
-          .phone +1 (719) 359-9575
-          .email
-            a(href="mailto:p@trickkennedy.com") p@atrickkennedy.com
-          .github
-            a(href="https://github.com/PatrickKennedy") Github
-          .location
-            a(href="https://www.google.com/maps/place/Colorado+Springs,+CO/") Colorado Springs, United States
+        include ./partials/footer.jade
 
     if scripts
       each path in scripts
