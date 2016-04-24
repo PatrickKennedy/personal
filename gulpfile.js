@@ -130,6 +130,10 @@ function gather_styles() {
         lineNumbers: true,
         bundleExec: true,
         loadPath: config.paths.vendor.sass,
+        includePaths: [
+          require("node-bourbon").includePaths,
+          require("bourbon-neat").includePaths,
+        ],
       })
       .on('error', gutil.log)
     ))
