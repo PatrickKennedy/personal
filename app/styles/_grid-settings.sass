@@ -1,0 +1,24 @@
+@import bourbon
+@import neat-helpers
+
+$column: 90px
+$gutter: 10px
+$grid-columns: 12
+$max-width: 1200px
+
+$first-breakpoint-value: 400px
+$second-breakpoint-value: 835px
+$third-breakpoint-value: 1100px
+
+// Covers 0-399px wide screen size. 2 column grid
+$small-screen: new-breakpoint(max-width em($first-breakpoint-value - 1) 2)
+// Covers 400-835px wide screen size. 4 column grid
+$medium-screen-minus: new-breakpoint(max-width em($second-breakpoint-value) 4)
+$medium-screen: new-breakpoint(min-width em($first-breakpoint-value) max-width em($second-breakpoint-value) 4)
+$medium-screen-plus: new-breakpoint(min-width em($first-breakpoint-value) 4)
+// Covers 836-1099px wide screen size. 8 column grid
+$large-screen-minus: new-breakpoint(max-width em($third-breakpoint-value - 1) 8)
+$large-screen: new-breakpoint(min-width em($second-breakpoint-value + 1) max-width em($third-breakpoint-value - 1) 8)
+$large-screen-plus: new-breakpoint(min-width em($second-breakpoint-value + 1) 8)
+// Covers 1100px and up wide screen size. 12 column grid (default grid size)
+$xl-screen: new-breakpoint(min-width em($third-breakpoint-value))
