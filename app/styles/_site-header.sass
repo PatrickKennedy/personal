@@ -1,0 +1,46 @@
+.site-header
+  +outer-container
+  border-bottom: 1px solid #111
+  margin: 0 0 1.5rem 0
+  padding: 1.5rem 0
+  padding-left: 1.6rem
+  font-family: $serif
+  background: $base-background-color
+
+.site-title
+  +span-columns(12)
+  +omega
+  font-size: 3em
+  text-decoration: none
+  text-align: center
+  color: $base-font-color
+
+  +media($medium-screen-minus)
+    font-size: 2.5em
+
+.site-nav
+  +span-columns(12)
+  +omega
+  font-size: 1.1em
+  font-family: $sans-serif
+
+  +media($medium-screen-minus)
+    font-size: .9em
+
+  > ul
+    margin: 0
+    padding: 0
+    list-style: none
+    text-transform: uppercase
+    font-size: 1em
+    text-align: center
+
+    li
+      padding: 0 .2em
+      display: inline
+
+      &.divider
+        vertical-align: text-bottom
+
+  a
+    color: $nav-link-color
