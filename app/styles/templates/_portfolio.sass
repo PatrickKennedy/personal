@@ -1,0 +1,155 @@
+$timeline-line-width: 4px
+$timeline-marker-width: 20px
+$timeline-marker-width-mobile: 20px
+$timeline-marker-color: $light-green
+$timeline-marker-secondary-color: darken($teal-green, 10)
+
+$timeline-important-width: 18%
+$timeline-important-width-mobile: 30%
+$timeline-important-color: $light-green
+$timeline-important-secondary-color: darken($teal-green, 10)
+
+.timeline
+  +outer-container
+  position: relative
+  padding: 2em 0
+  margin: 1.6em 5%
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    height: 100%
+    width: $timeline-line-width
+    margin-left: -$timeline-line-width / 2
+    background: darken(shade($dark-background-color, 8), 10)
+
+  +media($medium-screen-minus)
+    &::before
+      left: $timeline-marker-width-mobile / 2
+
+.timeline-block
+  +span-columns(12)
+  +omega
+  position: relative
+  margin: 1rem 0
+
+  +media($large-screen-plus)
+    margin 2em 0
+
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+.timeline-important
+  margin: 0 auto
+  width: $timeline-important-width-mobile
+  +background(radial-gradient($timeline-important-color, $timeline-important-secondary-color))
+  text-align: center
+  font-size: 1.6em
+  padding: 1.3rem 0
+  border-radius: $base-border-radius - .2
+  box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05)
+  color: white
+  text-shadow: 1px 2px 3px  rgba(0, 0, 0, 0.2)
+
+  +media($large-screen-plus)
+    width: $timeline-important-width
+
+
+.timeline-entry
+  .timeline-icon
+    +background(radial-gradient($timeline-marker-color, $timeline-marker-secondary-color))
+    position: absolute
+    top: (60 / 2) - $timeline-marker-width / 2
+    width: $timeline-marker-width-mobile
+    height: $timeline-marker-width-mobile
+    border-radius: 50%
+    box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05)
+
+    +media($large-screen-plus)
+      width: $timeline-marker-width
+      height: $timeline-marker-width
+      left: 50%
+      margin-left: -$timeline-marker-width / 2
+
+  // Default/Mobile First
+  .timeline-entry-content
+    margin-left: $timeline-marker-width-mobile * 2
+    position: relative
+    padding: 1rem
+    border-radius: $base-border-radius
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.18)
+    background: $base-background-color
+
+    &::before
+      content: ''
+      height: 0
+      width: 0
+      position: absolute
+      top: 1.4em
+      right: 100%
+      border: 7px solid transparent
+      border-right-color: white
+
+    &::after
+      content: ''
+      display: table
+      clear: both
+
+    .entry-date
+      float: left
+      padding: .5em 0
+      opacity: .8
+
+    .button-group
+      float: right
+
+  // Large Screen Display of Left Items
+  +media($large-screen-plus)
+    .timeline-entry-content
+      width: 46%
+      margin-left: 0
+      padding: 1.6rem
+
+      &::before
+        top: 1.6em
+        left: 100%
+        border-color: transparent
+        border-left-color: white
+
+      .entry-date
+        position: absolute
+        width: 100%
+        left: 115%
+        padding: 0
+        top: 1.3em
+        line-height: 1.2
+        color: $off-white
+
+      .button-group
+        float: left
+
+  // Large Screen Display of Right Items
+  +media($large-screen-plus)
+    &:nth-child(even)
+      .timeline-entry-content
+        float: right
+        margin-right: 0
+
+        &::before
+          border-color: transparent
+          border-right-color: white
+          left: auto
+          right: 100%
+
+        .entry-date
+          text-align: right
+          left: auto
+          right: 115%
+
+        .button-group
+          float: right
+

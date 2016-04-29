@@ -1,0 +1,23 @@
+doctype html
+html(ng-app='personal')
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    if styles
+      each path in styles
+        link(rel="stylesheet" type="text/css" href="css/#{path}")
+
+    link(href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300' rel='stylesheet' type='text/css')
+    link(href='//fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,500,700' rel='stylesheet' type='text/css')
+
+  body(ng-controller="PersonalController as app")
+    .page-container
+      .page-wrapper
+        include ./partials/header.jade
+
+        main.view-content(ng-view)
+
+        include ./partials/footer.jade
+
+    if scripts
+      each path in scripts
+        script(type="text/javascript" src="js/#{path}")

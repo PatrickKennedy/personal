@@ -1,0 +1,143 @@
+/* T-Comm Override */
+div > ol > li {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* Extension */
+
+/*li input.memo-select {
+  position: absolute;
+  margin-left: -36px;
+}*/
+
+li input.memo-select {
+  position: relative;
+  margin-right: 5px;
+}
+
+li input.memo-select:checked + span,
+li input.memo-select:checked + span ol,
+li input.memo-select:checked + span ul {
+  opacity: .5;
+}
+
+.inline-panel {
+  display: table-cell;
+}
+
+.memo-edit {
+  padding: 2px;
+  margin-top: 1px;
+  color: #777;
+  font: 11px/normal verdana, sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  width: 125px;
+  border: 1px solid #bbb;
+}
+
+.inline-panel .tmb-button-group {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.generate-memo {
+  display: inline-block;
+}
+
+
+script#step_panel {
+  display: none !important;
+}
+
+#step_panel {
+  position: relative;
+  padding: 5px;
+  padding-top: 8px;
+  padding-bottom: 3px;
+  padding-right: 8px;
+  margin-top: .25em;
+  border: 1px solid #666;
+  border-radius: 2px;
+  display: inline-block !important;
+}
+
+#sp-title {
+  padding: 1px 5px;
+  position: absolute;
+  top: -0.8em;
+  left: 1em;
+  font: 10px/normal sans-serif;
+  line-height: 12px;
+  background-color: white;
+}
+
+.sp-pip {
+  position: absolute;
+  right: -5px;
+  height: 8px;
+  width: 8px;
+  color: #fff;
+  font: 11px/normal sans-serif;
+  font-weight: bold;
+  text-align: center;
+  -webkit-user-select: none;
+  cursor: default;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#sp-state {
+  top: -5px;
+  background-color: green;
+  background-image: linear-gradient(#2E8A2E, #216321);
+  border-color: #297C29;
+  border-bottom-color: #1E591E;
+}
+
+#sp-state.saving {
+  background-color: red;
+  background-image: linear-gradient(#990000, #6E0000);
+  border-color: #8A0000;
+  border-bottom-color: #630000;
+}
+
+#sp-remove {
+  top: 15px;
+  cursor: pointer;
+  line-height: 7px;
+  background-color: darkred;
+  background-image: linear-gradient(#990000, #6E0000);
+  border-color: #8A0000;
+  border-bottom-color: #630000;
+}
+
+#sp-index {
+  top: 26px;
+  right: -8px;
+  height: 14px;
+  width: 14px;
+  border-radius: 8px;
+  color: #fff;
+  font: 10px/normal sans-serif;
+  line-height: 13px;
+  background-color: grey;
+  background-image: linear-gradient(#8585AD, #60607D);
+  border-color: #78789C;
+  border-bottom-color: #565670;
+}
+
+#sp-add {
+  top: 43px;
+  cursor: pointer;
+  line-height: 8px;
+  background-color: darkgreen;
+  background-image: linear-gradient(#2E8A2E, #216321);
+  border-color: #297C29;
+  border-bottom-color: #1E591E;
+}
+
+.sp-user { color: blue; }
+.sp-agent { color: green; }

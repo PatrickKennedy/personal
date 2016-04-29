@@ -1,0 +1,53 @@
+#resume
+  +span-columns(8)
+  +shift(2)
+  margin-bottom: 1rem
+
+  +media($medium-screen-minus)
+    +span-columns(3)
+    +shift(.5)
+
+  ul
+    margin-left: 1.25em
+    list-style-type: square
+
+    li
+      margin-bottom: .5em
+      line-height: 1.35
+
+      &:last-child
+        margin-bottom: 0
+
+  h1
+    font-size: 3em
+    line-height: 2
+    text-align: center
+    font-weight: 600
+    margin: 0 auto
+    color: $off-white
+    text-shadow: 1px 2px 3px  rgba(0, 0, 0, 0.3)
+
+    +media($medium-screen-minus)
+      font-size: 2.3em
+
+.resume-position
+  margin: 1em 0
+  padding: 1.5em
+
+  .position-header
+    font-size: 1.3em
+    line-height: 1
+    color: $dark-grey
+
+  .years
+    font-weight: 500
+
+  .position-skills
+    font-size: .8em
+    margin-bottom: .5em
+    color: $medium-grey
+
+.education
+  margin-top: 3rem
+  .shadow-box
+    margin: 1rem 0
