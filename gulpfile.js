@@ -397,6 +397,19 @@ gulp.task('server', function server() {
 });
 
 
+/*
+ * Run a lightweight server for deployment
+ */
+
+gulp.task('server:deploy', function server() {
+  connect.server({
+    root: config.paths.build,
+    port: config.connect_port || 8080
+  });
+});
+
+
+
 gulp.task('build', function(cb){
   sequence(
     "clean:build",
@@ -423,6 +436,14 @@ gulp.task('release', function(cb){
     "demos:release",
     "images:release",
     "static:release",
+    cb
+  );
+});
+
+gulp.task('deploy', function(cb){
+  sequence(
+    "release",
+    "server:deploy",
     cb
   );
 });

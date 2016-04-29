@@ -1,10 +1,10 @@
 {
   "name": "personal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Patrick Kennedy's Personal Website",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node node_modules/gulp/bin/gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "url": "https://github.com/PatrickKennedy/personal/issues"
   },
   "homepage": "https://github.com/PatrickKennedy/personal#readme",
-  "devDependencies": {
+  "dependencies": {
     "bourbon-neat": "^1.7.4",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
@@ -41,9 +41,5 @@
     "node-bourbon": "^4.2.8",
     "run-sequence": "^1.1.5",
     "stream-series": "^0.1.1"
-  },
-  "dependencies": {
-    "connect": "^3.4.1",
-    "serve-static": "^1.10.2"
   }
 }
