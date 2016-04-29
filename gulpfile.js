@@ -401,9 +401,9 @@ gulp.task('server', function server() {
  */
 
 gulp.task('server:deploy', function server(cb) {
-  connect.server({
-    root: config.paths.build,
-    port: config.connect_port || 8080
+  return connect.server({
+    root: config.paths.release,
+    port: 80
   });
 });
 

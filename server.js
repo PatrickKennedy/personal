@@ -8,4 +8,4 @@ var app = connect();
 app.use(serveStatic('release', {'index': ['index.html']}));
 
 //create node.js http server and listen on port
-http.createServer(app).listen(3000);
+http.createServer(app).listen(80);
