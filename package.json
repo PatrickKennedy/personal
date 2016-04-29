@@ -1,6 +1,6 @@
 {
   "name": "personal",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Patrick Kennedy's Personal Website",
   "main": "index.js",
   "scripts": {
