@@ -108,7 +108,7 @@ function build_scripts(dest, minify, concat){
 };
 
 gulp.task('scripts', ['lint'], function(){ return build_scripts(); });
-gulp.task('scripts:release', ['lint'], function(){
+gulp.task('scripts:release', function(){
   return build_scripts(config.paths.release, false, true);
 });
 
