@@ -403,7 +403,7 @@ gulp.task('server', function server() {
 gulp.task('server:deploy', function server(cb) {
   return connect.server({
     root: config.paths.release,
-    port: 80
+    port: 3000,
   });
 });
 
