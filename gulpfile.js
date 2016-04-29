@@ -108,7 +108,7 @@ function build_scripts(dest, minify, concat){
 };
 
 gulp.task('scripts', ['lint'], function(){ return build_scripts(); });
-gulp.task('scripts:release', ['lint'], function(){
+gulp.task('scripts:release', function(){
   return build_scripts(config.paths.release, false, true);
 });
 
@@ -400,10 +400,10 @@ gulp.task('server', function server() {
  * Run a lightweight server for deployment
  */
 
-gulp.task('server:deploy', function server() {
-  connect.server({
-    root: config.paths.build,
-    port: config.connect_port || 8080
+gulp.task('server:deploy', function server(cb) {
+  return connect.server({
+    root: config.paths.release,
+    port: process.env.PORT || 3000,
   });
 });
 
