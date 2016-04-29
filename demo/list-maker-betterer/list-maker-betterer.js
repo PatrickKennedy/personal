@@ -65,6 +65,7 @@ jQuery("<div class=\"tmb-button-group\" style=\"display: inline-block;\">")
               memo += separator + step_memo;
           });
           copy_to_clipboard(memo);
+          jQuery('#memo').text(memo);
         })
        )
 .append(jQuery("<div class=\"tmb-button generate-memo\">Clear</div>")
