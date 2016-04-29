@@ -400,7 +400,7 @@ gulp.task('server', function server() {
  * Run a lightweight server for deployment
  */
 
-gulp.task('server:deploy', function server() {
+gulp.task('server:deploy', function server(cb) {
   connect.server({
     root: config.paths.build,
     port: config.connect_port || 8080
