@@ -1,2 +1,183 @@
-.content
-  .text See, here's the work I did.
+// Vertical timeline design from https://codyhouse.co/gem/vertical-timeline/
+
+mixin timeline_entry(icon, title, date)
+  .timeline-block.timeline-entry
+    .timeline-icon
+      .icon= icon
+
+    section.timeline-entry-content
+      h2= title
+      block
+      span.entry-date= date
+
+mixin timeline_important(message)
+  .timeline-block
+    section.timeline-important
+      .important-message= message
+  // HACK: required to make nth-child function properly
+  // giving .timeline-block another element and using nth-of-type
+  // would also work but feels even more hacky
+  div(style="display: none;")
+
+#portfolio
+
+  section.timeline
+    +timeline_important('2016')
+
+    +timeline_entry('', 'Personal Site and Portfolio', "Apr '16")
+      p.
+        A long negelected part of my professional repertoire. Deciding what to
+        include and how to present that was especially challenging as much of
+        my body of work is not especially graphical or publically available.
+        Considering my extensive history in programming, I felt a timeline was
+        the most flexible way of revealing that experience.
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/personal/") Source
+
+    +timeline_important('2015')
+
+    +timeline_entry('', 'Zombie in my Pocket', "Dec '15")
+      p.
+        A digital version of Zombie in my Pocket, a five-minute print'n'play
+        solitaire game. The goal of the project was to better understand
+        building a flexible build system, a single page Angular app, and a
+        self-contained and portable game.
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/zombies/") Source
+        a(href="https://rawgit.com/PatrickKennedy/zombies/develop/zombie_in_my_pocket.html") Demo
+
+    +timeline_entry('', 'Anyday', "May '15")
+      p.
+        or, Yet Another Todo List But Not Quite. The idea for Anyday arose from
+        the effect working from home can have on a person's sense of time. In
+        my case I wanted to know how long it had been since I last watered the
+        plants, or vacuumed, tasks that don't benefit from firm scheduling.
+
+      p.
+        As my first Angular app I wanted to both explore Angular, but also
+        building client-heavy, API driven applications.
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/anyday/") Source
+        a(href="http://anyday.dysio.de") Demo
+
+    +timeline_important('2014')
+
+    +timeline_entry('', 'Morning', "Early '14")
+      p.
+        My next most successful UX improvement. Instead of displaying upcoming
+        calendar events in absolute timeframes it displays the next three events
+        more intelligently. The next upcoming event is displayed relative to the
+        current time, events after are given absolute times.
+
+      p See the source for glamor shots
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/Morning/") Source
+
+    +timeline_important('2013')
+
+    +timeline_entry('', 'List Maker Betterer', "August '14")
+      p.
+        T-Mobile was gracious enough to allow agents to install Chrome on their
+        computers. Utilizing this direct access to support resources this
+        Chrome Extension takes ordinary lists and makes them EXTRA ordinary.
+
+      p.
+        I'm especially proud of this one because it's a successful
+        implimentation of one of my many ideas of a UX improvement.
+
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/list-maker-betterer/") Source
+        a(href="#/portfolio/list-maker-betterer" target="blank_") Demo
+
+    //+timeline_important('2012')
+
+    //+timeline_important('2011')
+
+    +timeline_important('2010')
+
+    +timeline_entry('', 'Descent II Wiimote Interface', "'10 and on")
+      p.
+        This script represents a complex interface between a Wiimote/Nunchuck
+        combo and virtual joysticks on a PC using GlovePIE. The script goes
+        beyond 1-to-1 mapping of inputs. It can be calibrated on the fly to
+        match a player's resting position, and understands that in that position
+        it's easier to rotate your hands outward, and scales up inward motions.
+
+      .button-group
+        a(href="https://www.youtube.com/watch?v=bnO2XcPDCDI") Demo Video
+
+    //+timeline_important('2009')
+
+    +timeline_important('2008')
+
+    +timeline_entry('', 'Context Free', "Late '08")
+      p.
+        The library and proceedure files were found at Aza Raskin's
+        <a href="http://azarask.in/projects/algorithm-ink/">Algorithm Ink</a>. My
+        contribution was integrating it underneith a webpage allowing for
+        interactvity.
+
+      p.
+        The demo is this page, click on the background!
+
+    +timeline_entry('', 'Sybil', "Early '08")
+      p.
+        Sybil is designed for writers to help them organize characters and
+        worlds. It featured Markdown (and ReST but no one uses that) for all
+        fields allowing for customization. Most people used this for pinboarding
+        descriptive images.
+
+      p.
+        The site was built on a home-brew web framework running on Google App
+        Engine. The framework featured common features like routing and caching.
+        Additionally, the site included multiple distinct themes and color
+        palettes in addition to the interactive background provided by Context
+        Free.
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/sybil/") Source
+
+    +timeline_important('2007')
+
+    +timeline_entry('', 'RPG Maker XP Mouse Input', "Early '07")
+      p.
+        This was the first script of it's kind, utilizing the Windows native
+        libraries to introduce mouse input to RPG Maker XP. On it's own it
+        integrated seamlessly with the native interfaces, but it had an
+        available extensible context menu system and basic path finding for
+        point-and-click movement.
+
+      .button-group
+        a(href="#") Source
+
+    +timeline_important('2006')
+
+    +timeline_entry('', 'PyGab', "Early '06")
+      p.
+        PyGab is the evolution of a single file bot designed to simulate IRC in
+        Google Talk. PyGab is designed with extensibility at it's core. It
+        features a hot-swappable event-driven plugin system allowing it to
+        interface with distinct Jabber networks and work with their inherent
+        quirks.
+
+      .button-group
+        a(href="https://github.com/patrickkennedy/pygab/") Source
+
+    +timeline_important('2005')
+
+    +timeline_entry('', 'RPG Maker XP Input Replacement', "Sometime '05")
+      p.
+        This script is a complete reimplemntation of the native input API which
+        only supported half a dozen keys, and exposed the entire keyboard. It
+        wasn't the first script of it's kind, but exposed a much friendlier API
+        than existing solutions, and also precisely mimiced the native behavior,
+        specifically a pause before repeating when holding a button and
+        respecting the native input configuration.
+
+      .button-group
+        a(href="#") Source

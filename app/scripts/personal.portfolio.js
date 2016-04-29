@@ -13,8 +13,8 @@
   function ProjectsCtrl($routeParams, ngLoad) {
     var project = $routeParams.project;
     var path = `demo/${project}/`
-    ngLoad.loadScript(`${path}/${project}.js`);
-    ngLoad.loadCSS(`${path}/${project}.css`);
+    ngLoad.loadScript(`${path}${project}.js`);
+    ngLoad.loadCSS(`${path}${project}.css`);
   }
 
 }(angular));

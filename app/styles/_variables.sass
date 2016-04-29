@@ -10,14 +10,18 @@ $base-font-family: $serif
 $heading-font-family: $sans-serif
 
 // Font Sizes
-$base-font-size: 1em
+$base-font-size: 1.1em
+
+// Font Weights
+$base-font-weight: 300
+$heading-font-weight: 400
 
 // Line height
 $base-line-height: 1.5
 $heading-line-height: 1.2
 
 // Other Sizes
-$base-border-radius: 3px
+$base-border-radius: .25em
 $base-spacing: $base-line-height * 1em
 $small-spacing: $base-spacing / 2
 $base-z-index: 0
@@ -25,27 +29,40 @@ $base-z-index: 0
 // Colors
 $blue: #1565c0
 $pale-blue: #e9f0f5
-$dark-grey: #333333
-$medium-grey: #999999
-$light-grey: #dddddd
+
+$dark-grey: #303E49
+$medium-grey: lighten($dark-grey, 30)
+$light-grey: lighten($medium-grey, 45)
+
 $soft-grey: #7f8c97
 $blue-grey: #303E49
 $off-white: #fafafa
 $dark-white: darken(#fafafa, 10)
 $nav-link-color: #D30006
 
+$light-green: #75ce66
+$teal: #64C3C1
+$teal-green: mix($light-green, $teal, 70)
+
+$teal-red: #c36466
+
+$grass-green: #4a7c24
+$light-grass-green: #8ed459
+$easter-green: saturate(tint(lighten($grass-green, 15), 35), 20)
+
+
 // Font Colors
-$base-font-color: $soft-grey
+$base-font-color: darken($soft-grey, 5)
 $heading-font-color: $dark-grey
 $action-color: $blue
 
 // Border
-$base-border-color: $light-grey
+$base-border-color: $medium-grey
 $base-border: 1px solid $base-border-color
 
 // Background Colors
-$base-background-color: $off-white
-$dark-background-color: $dark-white
+$base-background-color: $light-grey
+$dark-background-color: saturate(lighten($medium-grey, 10), 45)
 $secondary-background-color: tint($base-border-color, 75%)
 
 // Forms

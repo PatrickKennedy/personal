@@ -48,7 +48,11 @@ li input.memo-select:checked + span ul {
 }
 
 
-#step_panel, #step_panel {
+script#step_panel {
+  display: none !important;
+}
+
+#step_panel {
   position: relative;
   padding: 5px;
   padding-top: 8px;

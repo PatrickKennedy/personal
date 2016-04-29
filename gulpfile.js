@@ -4,6 +4,7 @@ var fs = require('fs')
     , gulp        = require('gulp')
     , gulpif      = require('gulp-if')
     , gutil       = require('gulp-util')
+    , gdebug      = require('gulp-debug')
 
     , connect     = require('gulp-connect')
     , concat      = require('gulp-concat')
@@ -140,11 +141,24 @@ function gather_styles() {
     ;
 }
 
+function gather_vendor_styles() {
+  return gulp.src(config.paths.vendor.styles);
+}
+
+function concat_styles(_concat) {
+  return series(
+    gather_vendor_styles(),
+    gather_styles()
+  )
+    .pipe(gulpif(_concat, concat("main.css")))
+    ;
+}
+
 function build_styles(dest, minify){
   dest = typeof dest !== 'undefined' ? dest : config.paths.build;
   minify = typeof minify !== 'undefined' ? minify : false;
 
-  return gather_styles()
+  return concat_styles()
     .pipe(gulpif(minify, minify_css()))
     .pipe(gulp.dest(`${dest}/css`))
     .pipe(tap(function(file, t){
@@ -213,7 +227,7 @@ function gather_demo_scripts(demo){
 
 function concat_demo_scripts(demo, _concat) {
   return gather_demo_scripts(demo)
-    .pipe(gulpif(_concat, concat(`${demo}.js`)))
+    .pipe(gulpif(_concat, concat(`${demo}/${demo}.js`)))
     ;
 }
 
@@ -240,7 +254,7 @@ function gather_demo_styles(demo) {
 
 function concat_demo_styles(demo, _concat) {
   return gather_demo_styles(demo)
-    .pipe(gulpif(_concat, concat(`${demo}.css`)))
+    .pipe(gulpif(_concat, concat(`${demo}/${demo}.css`)))
     ;
 }
 
@@ -262,7 +276,7 @@ function build_demos(dest, minify, concat){
   }
 
   return series(streams)
-    .pipe(gulp.dest(`${dest}/demo/${demo}`))
+    .pipe(gulp.dest(`${dest}/demo/`))
     ;
 };
 
@@ -272,6 +286,49 @@ gulp.task('demos', function(){
 gulp.task('demos:release', function(){
   return build_demos(config.paths.release, false, true);
 });
+
+
+/*
+ * Image Tasks
+ *
+ * Gather and compress images
+ */
+
+function build_images(dest){
+  dest = typeof dest !== 'undefined' ? dest : config.paths.build;
+
+  return gulp.src(config.paths.app.images)
+    .pipe(gulp.dest(`${dest}/img/`))
+    .pipe(connect.reload())
+   ;
+};
+
+gulp.task('images', function(){ return build_images() });
+gulp.task('images:release', function(){
+  return build_images(config.paths.release);
+});
+
+
+/*
+ * Static Content Tasks
+ *
+ * Gather and move static files
+ */
+
+function build_static(dest){
+  dest = typeof dest !== 'undefined' ? dest : config.paths.build;
+
+  return gulp.src(config.paths.app.static)
+    .pipe(gulp.dest(`${dest}/static/`))
+    .pipe(connect.reload())
+   ;
+};
+
+gulp.task('static', function(){ return build_static() });
+gulp.task('static:release', function(){
+  return build_static(config.paths.release);
+});
+
 
 /*
  * Watch for changes and process the files in the relevant tasks
@@ -333,7 +390,7 @@ gulp.task('clean:release', function(cb){
 
 gulp.task('server', function server() {
   connect.server({
-    root: [config.paths.build],
+    root: config.paths.build,
     port: config.connect_port || 8080,
     livereload: true,
   });
@@ -349,6 +406,8 @@ gulp.task('build', function(cb){
     ],
     "pages",
     "demos",
+    "images",
+    "static",
     cb
   );
 });
@@ -362,6 +421,8 @@ gulp.task('release', function(cb){
     ],
     "pages:release",
     "demos:release",
+    "images:release",
+    "static:release",
     cb
   );
 });

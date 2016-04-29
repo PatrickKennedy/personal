@@ -1,5 +1,5 @@
 mixin section(start, stop, title, name, url)
-  section.resume-position
+  section.resume-position.shadow-box
     header.position-header
       span.years #{start} - #{stop}:
       span.title #{` ${title} - `}
@@ -15,7 +15,7 @@ mixin skills(...skills)
 
 #resume
   section.work-history
-    h1 A little bit of this. A little bit of that
+    h1 Experience
 
     +section('2013', '2015', 'Full-Stack Developer', 'CouponFactory', 'http://www.couponfactory.com/')
       +skills('python', 'django', 'javascript', 'jquery', 'OSX')
@@ -41,5 +41,6 @@ mixin skills(...skills)
 
   section.education
     h1 Education
-    ul
-      li AS, Computer Science, Pikes Peak Community College
+    .shadow-box
+      ul
+        li AS, Computer Science, Pikes Peak Community College
