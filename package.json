@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "node node_modules/gulp/bin/gulp release",
-    "start": "node node_modules/gulp/bin/gulp server:deploy"
+    "start": "node ./server.js"
   },
   "repository": {
     "type": "git",
