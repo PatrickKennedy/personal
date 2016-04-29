@@ -4,7 +4,7 @@
   "description": "Patrick Kennedy's Personal Website",
   "main": "index.js",
   "scripts": {
-    "install": "node node_modules/gulp/bin/gulp release",
+    "postinstall": "node node_modules/gulp/bin/gulp release",
     "start": "node node_modules/gulp/bin/gulp server:deploy"
   },
   "repository": {
