@@ -4,7 +4,7 @@
   "description": "Patrick Kennedy's Personal Website",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install && node node_modules/gulp/bin/gulp release",
+    "postinstall": "node node_modules/bower/bin/bower install && node node_modules/gulp/bin/gulp release",
     "start": "node node_modules/gulp/bin/gulp server:deploy"
   },
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/PatrickKennedy/personal#readme",
   "dependencies": {
     "bourbon-neat": "^1.7.4",
+    "bower": "^1.7.9",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-angular-htmlify": "^2.3.0",
