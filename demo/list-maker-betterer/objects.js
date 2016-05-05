@@ -21,15 +21,18 @@ function copy_to_clipboard( text ){
   document.body.removeChild(copyDiv);
 }
 
-function get_state(id) {
+function get_state(id, default_state) {
   var state;
+
+  default_state = jQuery.extend({steps:[], reference:[]}, default_state);
+
   console.log("Getting State");
   state = localStorage[`state-${id}`];
   if (typeof state === "string")
     state = undefined;
   console.log(state);
   if (!state)
-    state = {steps:[], reference:[]};
+    state = default_state;
 
   return state;
 }

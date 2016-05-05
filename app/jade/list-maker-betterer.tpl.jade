@@ -1,19 +1,23 @@
 #list-maker-betterer
-  h2 Old and Busted
-  div.shadow-box.busted
-    ol
-      li Start Here
-      li Proceed to this step
-      li Continue by moving to this step
-      li Finish up with this final step
+  .busted
+    h1 Old and Busted
+    div.shadow-box
+      ol
+        li Make sure computer is plugged in and monitor is on
+        li Ensure no server lock in place
+        li Press and hold power button for 5 seconds
+        li Continue to advanced troubleshooting
 
-  h2 New Hotness
-  div.shadow-box.better.hotness
-    ol
-      li Start Here
-      li Proceed to this step
-      li Continue by moving to this step
-      li Finish up with this final step
+  .hotness
+    h1 New Hotness
+    div.shadow-box.better
+      ol
+        li Make sure computer is plugged in and monitor is on
+        li Ensure no server lock in place
+        li Press and hold power button for 5 seconds
+        li Continue to advanced troubleshooting
+
+      textarea#memo
 
 script#step_panel(type="text/html").
   <div id="step_panel">
