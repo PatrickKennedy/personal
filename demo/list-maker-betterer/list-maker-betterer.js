@@ -8,8 +8,14 @@ ich.grabTemplates();
 
 if ($step_panel.length === 0) $step_panel = jQuery(step_tools.new());
 
-var state = get_state(id)
-    , steps = state['steps']
+var state = get_state(
+      id, {steps: [
+        {memo:"Checked power cables", color:"user"},
+        {memo:"Confirmed no server-side locks", color:"agent"},
+        {memo:"Attempted hard reset", color:"user"},
+        {memo:"Verified basic troubleshooting complete", color:"neither"},
+    ]})
+    , steps = state.steps
     , list_path = "div.better > ol"
     ;
 
@@ -28,7 +34,7 @@ jQuery(`${list_path} > li`).each(function (index) {
 
   // Apply State
   console.log("Applying State");
-  $this.addClass("sp-"+ steps[index]["color"]);
+  $this.addClass("sp-"+ steps[index].color);
 
   // Setup Action Listers
   console.log("Attaching Click Handler");
