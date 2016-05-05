@@ -4,7 +4,7 @@ module.exports = {
     release: 'release',
     app: {
       scripts: ['app/scripts/app.js', 'app/scripts/**/*.js'],
-      styles:   'app/styles/main.{sass,css}',
+      styles:   'app/styles/**/*.{sass,css}',
       pages:    ['app/jade/*.{html,jade,md,markdown}', '!app/jade/*.tpl.*'],
       templates:'app/jade/*.tpl.{html,jade,md,markdown}',
       images:   'app/images/**/*.{png,jpg,jpeg,gif}',
