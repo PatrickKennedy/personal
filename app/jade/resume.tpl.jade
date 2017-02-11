@@ -17,6 +17,14 @@ mixin skills(...skills)
   section.work-history
     h1 Experience
 
+    +section('2016', 'Present', 'Full-Stack Developer', 'Charter Communications', 'http://www.charter.com/')
+      +skills('python', 'flask', 'javascript', 'jquery', 'mongo', 'docker', 'jenkins', 'linux')
+      ul
+        li Extended a naive single-page application with view controllers, routing and a small alerts framework
+        li Dockerized a primarily server based development environment consisting of four distinct micro-services.
+        li Converted the frontend to use Promises end-to-end building a light controller system on top of it
+        li Mentored two junior backend engineers to become more full-stack since 2017
+
     +section('2013', '2015', 'Full-Stack Developer', 'CouponFactory', 'http://www.couponfactory.com/')
       +skills('python', 'django', 'javascript', 'jquery', 'OSX')
       ul
