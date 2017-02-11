@@ -19,7 +19,7 @@
     "url": "https://github.com/PatrickKennedy/personal/issues"
   },
   "engines": {
-    "node": "0.12"
+    "node": "4.4"
   },
   "dependencies": {
     "bourbon-neat": "^1.7.4",
