@@ -4,7 +4,8 @@
   "description": "Patrick Kennedy's Personal Website",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower install",
+    "install": "node node_modules/bower/bin/bower install",
+    "postinstall": "node node_modules/gulp/bin/gulp release",
     "start": "node node_modules/gulp/bin/gulp server:deploy"
   },
   "repository": {
@@ -13,10 +14,13 @@
   },
   "author": "Patrick Kennedy <p@trickkennedy.com>",
   "license": "ISC",
+  "homepage": "https://github.com/PatrickKennedy/personal#readme",
   "bugs": {
     "url": "https://github.com/PatrickKennedy/personal/issues"
   },
-  "homepage": "https://github.com/PatrickKennedy/personal#readme",
+  "engines": {
+    "node": "0.12"
+  },
   "dependencies": {
     "bourbon-neat": "^1.7.4",
     "bower": "^1.7.9",
