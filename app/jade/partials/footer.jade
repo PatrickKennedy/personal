@@ -1,3 +1,8 @@
+mixin icon-link(url, icon)
+    a(href="#{url}")
+      i(class="fa fa-#{icon}")
+      block
+
 footer.site-footer
   //
     .twitter
@@ -6,18 +11,19 @@ footer.site-footer
       a(href="mailto:p@trickkennedy.com") p@trickkennedy.com
 
   .phone-number
-    a(href="tel:719-359-9575") +1 719 359 9575
+    +icon-link("tel:719-359-9575", "mobile") +1 719 359 9575
 
   .location
-    a(href="https://www.google.com/maps/place/Denver,+CO/") Denver, United States
+    +icon-link("https://www.google.com/maps/place/Denver,+CO/", "map-marker")
+      | Denver, United States
 
   .social-links
     .twitter
-      a(href="https://twitter.com/Dysiode") Twitter
+      +icon-link("https://twitter.com/Dysiode", "twitter") Twitter
     .github
-      a(href="https://github.com/PatrickKennedy") Github
+      +icon-link("https://github.com/PatrickKennedy", "github") Github
     .linkedin
-      a(href="https://www.linkedin.com/in/patrick-kennedy-15295681") Linkedin
+      +icon-link("https://www.linkedin.com/in/patrick-kennedy-15295681", "linkedin") Linkedin
     .instagram
-      a(href="https://www.instagram.com/dysiode/") Instagram
+      +icon-link("https://www.instagram.com/dysiode/", "instagram") Instagram
 
